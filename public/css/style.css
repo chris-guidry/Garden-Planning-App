@@ -1,0 +1,68 @@
+body {
+	font-size: 15px;
+}
+h1, h2, h3, label {
+	color: #2C4172;
+}
+h3 {
+	margin-top: 0;
+}
+#bed-list, .col-md-10 {
+	height: 100%;
+}
+.beds {
+	margin: 1.5%;
+	text-align: center;
+	overflow: scroll;
+}
+.beds, #bed-form {
+	border: .2em solid #008000;
+	border-radius: .5em;
+	padding: 2%;
+	display: inline-block;
+	vertical-align: text-top;
+}
+.beds img {
+	margin-bottom: 1em;
+}
+#bed-form {
+	width: 100%;
+	margin: 3em 1em 1em 0;
+}
+#bed-form label {
+	margin: .5em 0 .2em 0;
+}
+.form-fields {
+	display: inline-block;
+	width: 48%;
+	vertical-align: text-top;
+	margin-right: 2%;
+}
+.form-plants {
+	display: inline-block;
+	width: 48%;
+	vertical-align: text-top;
+}
+.form-plants span {
+	margin-right: 1em;
+}
+.glyphicon-remove {
+	color: red;
+	font-size: 20px;
+	cursor: pointer;
+}
+@media (max-width:961px) {
+	.form-fields, .form-plants {
+		width: 100%;
+	}
+}
+.btn-primary {
+	background-color: #A0444D;
+	border: none;
+}
+.btn-primary:hover {
+	background-color: #7D363D;
+}
+.label-info {
+	background-color: #2C4172;
+}

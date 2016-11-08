@@ -1,0 +1,77 @@
+<!doctype html>
+
+<!-- ASSIGN ANGULAR MODULE -->
+<html ng-app="gardenPlan">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>Garden Planning App</title>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js?cdv=289" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="js/controllers/bed.controller.js"></script>
+	<script src="js/services/bed.service.js"></script> 
+	<script src="js/controllers/plant.controller.js"></script>
+	<script src="js/services/plant.service.js"></script>
+	<script src="js/app.js"></script>
+
+</head>
+<!-- SET THE CONTROLLER -->
+<body ng-controller="bedController">
+	<div class="container">
+
+		<!-- HEADER AND BED COUNT -->
+		<h1><img src="/img/beets.png"> Garden Plan: Beds <span class="label label-info">{{ beds.length }}</span></h1>
+
+		<p class="text-center" ng-show="loading">
+			<span class="fa fa-spinner fa-spin fa-3x"></span>
+		</p>
+
+		<!-- BED LIST -->
+		<div id="bed-list" class="row">
+			<!-- LOOP OVER THE BEDS IN $scope.beds -->
+			<div class="beds" ng-repeat="bed in beds" style="width: calc({{ bed.width }}px * 40); height: calc({{ bed.height}}px * 35);">
+				<h3>{{ bed.text }} <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="deleteBed(bed._id)" title="Remove bed"></span></h3>
+				<div ng-repeat="p in bed.plants">
+					<img src="/img/{{p.name}}.png" title="{{p.name}}" alt="{{p.name}}">
+				</div>
+			</div>
+		</div>
+
+		<!-- FORM TO CREATE BEDS -->
+		<div id="bed-form" class="row">
+			<h2>Add Bed</h2>
+			<form>
+				<div class="form-group">
+					<div class="form-fields">
+						<label for="bedName">Name</label>
+						<input id="bedName" type="text" class="form-control input-lg" placeholder="Bed Name" ng-model="formData.text">
+						<label for="bedWidth">Width</label>
+						<input type="text" class="form-control input-lg" placeholder="3" ng-model="formData.width" value="3">
+						<label for="bedWidth">Height</label>
+						<input type="text" class="form-control input-lg" placeholder="10" ng-model="formData.height" value="10">
+					</div>
+					<div class="form-plants">
+						<label for="plantSelect">Vegetables</label>
+						<div ng-controller="plantController">
+							<span ng-repeat="plant in plants">
+								<label for="plant{{plant._id}}">
+									<input id="plant{{plant._id}}" type="checkbox" ng-model="x" ng-change="setSelectedPlants(plant._id)" name="plantGroup" value="{{plant._id}}">
+									<img src="/img/{{plant.name}}.png" title="{{plant.name}}" alt="{{plant.name}}">
+								</label>
+							</span>
+						</div>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="createBed()">Add</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
