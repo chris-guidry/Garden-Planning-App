@@ -34,43 +34,11 @@
 		</p>
 
 		<!-- BED LIST -->
-		<div id="bed-list" class="row">
-			<!-- LOOP OVER THE BEDS IN $scope.beds -->
-			<div class="beds" ng-repeat="bed in beds" style="width: calc({{ bed.width }}px * 40); height: calc({{ bed.height}}px * 35);">
-				<h3>{{ bed.text }} <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="deleteBed(bed._id)" title="Remove bed"></span></h3>
-				<div ng-repeat="p in bed.plants">
-					<img src="/img/{{p.name}}.png" title="{{p.name}}" alt="{{p.name}}">
-				</div>
-			</div>
+		<div id="bed-list" class="row" ng-include="'templates/bedListTemplate.html'">
 		</div>
 
 		<!-- FORM TO CREATE BEDS -->
-		<div id="bed-form" class="row">
-			<h2>Add Bed</h2>
-			<form>
-				<div class="form-group">
-					<div class="form-fields">
-						<label for="bedName">Name</label>
-						<input id="bedName" type="text" class="form-control input-lg" placeholder="Bed Name" ng-model="formData.text">
-						<label for="bedWidth">Width</label>
-						<input type="text" class="form-control input-lg" placeholder="3" ng-model="formData.width" value="3">
-						<label for="bedWidth">Height</label>
-						<input type="text" class="form-control input-lg" placeholder="10" ng-model="formData.height" value="10">
-					</div>
-					<div class="form-plants">
-						<label for="plantSelect">Vegetables</label>
-						<div ng-controller="plantController">
-							<span ng-repeat="plant in plants">
-								<label for="plant{{plant._id}}">
-									<input id="plant{{plant._id}}" type="checkbox" ng-model="x" ng-change="setSelectedPlants(plant._id)" name="plantGroup" value="{{plant._id}}">
-									<img src="/img/{{plant.name}}.png" title="{{plant.name}}" alt="{{plant.name}}">
-								</label>
-							</span>
-						</div>
-					</div>
-				</div>
-				<button type="submit" class="btn btn-primary btn-lg" ng-click="createBed()">Add</button>
-			</form>
+		<div id="bed-form" class="row" ng-include="'templates/bedFormTemplate.html'">
 		</div>
 	</div>
 </body>
