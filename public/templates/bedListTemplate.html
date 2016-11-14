@@ -1,5 +1,5 @@
-<div class="beds" ng-repeat="bed in beds" style="width: calc({{ bed.width }}px * 40); height: calc({{ bed.height}}px * 35);">
-	<h3>{{ bed.text }} <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="deleteBed(bed._id)" title="Remove bed"></span></h3>
+<div class="beds" ng-repeat="bed in beds" style="width: calc({{bed.width}}px * 40); height: calc({{bed.height}}px * 35);">
+	<h3>{{bed.text}} <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="deleteBed(bed._id)" title="Remove bed"></span></h3>
 	<div ng-repeat="p in bed.plants">
 		<img src="/img/{{p.name}}.png" title="{{p.name}}" alt="{{p.name}}">
 	</div>
