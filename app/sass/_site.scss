@@ -1,0 +1,27 @@
+body {
+	font-size: 15px;
+}
+h1, h2, h3, label {
+	color: $primaryColor;
+}
+h3 {
+	margin-top: 0;
+}
+.col-md-10 {
+	height: 100%;
+}
+.glyphicon-remove {
+	color: red;
+	font-size: 20px;
+	cursor: pointer;
+}
+.btn-primary {
+	background-color: #A0444D;
+	border: none;
+}
+.btn-primary:hover {
+	background-color: #7D363D;
+}
+.label-info {
+	background-color: $primaryColor;
+}

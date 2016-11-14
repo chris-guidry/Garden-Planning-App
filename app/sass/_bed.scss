@@ -1,0 +1,48 @@
+#bed-list, {
+	height: 100%;
+}
+.beds {
+	margin: 1.5%;
+	text-align: center;
+	overflow: auto;
+}
+.beds, #bed-form {
+	border: .2em solid $secondaryColor;
+	border-radius: .5em;
+	padding: 2%;
+	display: inline-block;
+	vertical-align: text-top;
+}
+.beds {
+	img {
+		margin-bottom: 1em;
+	}
+}
+#bed-form {
+	width: 100%;
+	margin: 3em 1em 1em 0;
+
+	label {
+		margin: .5em 0 .2em 0;
+	}
+}
+.form-fields {
+	display: inline-block;
+	width: 48%;
+	vertical-align: text-top;
+	margin-right: 2%;
+}
+.form-plants {
+	display: inline-block;
+	width: 48%;
+	vertical-align: text-top;
+
+	span {
+		margin-right: 1em;
+	}
+}
+@media (max-width:961px) {
+	.form-fields, .form-plants {
+		width: 100%;
+	}
+}
