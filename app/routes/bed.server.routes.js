@@ -1,10 +1,6 @@
-var Bed = require('./models/bed.model');
-var Plant = require('./models/plant.model');
+var Bed = require('../models/bed.model');
 
 module.exports = function (app) {
-
-    // api ---------------------------------------------------------------------
-    // get all beds
     app.get('/api/beds', function (req, res) {
         getBeds(res);
     });
@@ -37,17 +33,7 @@ module.exports = function (app) {
             getBeds(res);
         });
     });
-    app.get('/api/plants', function (req, res) {
-        getPlants(res);
-    });
-
-
-    // application -------------------------------------------------------------
-    app.get('*', function (req, res) {
-        res.sendFile(__dirname + '/public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-    });
-};
-
+}
 
 function getBeds(res) {
     Bed.find(function (err, beds) {
@@ -58,15 +44,4 @@ function getBeds(res) {
 
         res.json(beds); // return all beds in JSON format
     }).populate('plants');
-}
-function getPlants(res) {
-    Plant.find(function (err, plants) {
-
-        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-        if (err) {
-            res.send(err);
-        }
-
-        res.json(plants);
-    });
 }
