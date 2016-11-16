@@ -6,7 +6,7 @@ Built using MEAN stack (Mongo Express Angular Node). Initial purpose is to illus
 ## Requirements
 
 - [Node and npm](http://nodejs.org)
-- MongoDB: Make sure you have your own local or remote MongoDB database URI configured in "config/database.js"
+- MongoDB: Make sure you have your own local or remote MongoDB database URI configured in "config/default.json"
 - Express
 
 
@@ -14,7 +14,7 @@ Built using MEAN stack (Mongo Express Angular Node). Initial purpose is to illus
 
 1. Clone the repository https://github.com/chris-guidry/Garden-Planning-App.git
 2. Install the application: "npm install"
-3. Place your own MongoDB URI in "config/database.js"
+3. Place your own MongoDB URI in "config/default.json"
 4. Run this bash command from root of project to load "Plant" collection "mongo garden-plan /app/models/plant.Create.js"
 5. Start the server: "node server.js"
 6. View in browser at "http://localhost:8080"

@@ -1,0 +1,11 @@
+{
+  "gardenPlan": {
+    "databaseServer": {
+      "host": "localhost",
+      "database": "garden-plan"
+    },
+    "webServer": {
+      "port": "8080"
+    }
+  }
+}

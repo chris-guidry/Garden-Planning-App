@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 module.exports = mongoose.model('Bed', {
 	text: {
         type: String,
-        default: ''
+        required: true
     },
     width: {
     	type: Number,
@@ -13,10 +13,6 @@ module.exports = mongoose.model('Bed', {
     	type: Number,
     	default: 10
     },
-/*    plants: {
-        type: Array,
-        default: []
-    },*/
     plants: [{
         type: Number,
         ref: 'Plant'

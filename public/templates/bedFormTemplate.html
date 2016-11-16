@@ -1,9 +1,9 @@
 <h2>Add Bed</h2>
-<form>
+<form name="addBed">
 	<div class="form-group">
 		<div class="form-fields">
 			<label for="bedName">Name</label>
-			<input id="bedName" type="text" class="form-control input-lg" placeholder="Bed Name" ng-model="formData.text">
+			<input id="bedName" name="bedName" type="text" class="form-control input-lg" placeholder="Bed Name" ng-model="formData.text" required>
 			<label for="bedWidth">Width</label>
 			<input type="text" class="form-control input-lg" placeholder="3" ng-model="formData.width" value="3">
 			<label for="bedWidth">Height</label>
@@ -22,4 +22,8 @@
 		</div>
 	</div>
 	<button type="submit" class="btn btn-primary btn-lg" ng-click="createBed()">Add</button>
+	<span ng-show="savingBed">
+		<span class="fa fa-spinner fa-spin fa-3x"></span>
+	</span>
+	<div style="display:none">{{addBed.bedName.$valid}}</div>
 </form>

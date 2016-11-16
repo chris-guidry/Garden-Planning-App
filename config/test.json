@@ -1,0 +1,7 @@
+{
+  "gardenPlan": {
+    "databaseServer": {
+      "database": "garden-plan-test"
+    }
+  }
+}

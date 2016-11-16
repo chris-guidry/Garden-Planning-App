@@ -18,7 +18,7 @@ module.exports = function (app) {
             getBeds(res);
         })
         .catch(function(err) {
-            res.send(err);
+            res.send(422, err);
         });
     });
 

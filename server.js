@@ -1,8 +1,9 @@
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
-var port = process.env.PORT || 8080;
-var database = require('./config/database');
+var config = require('config');
+var port = config.get('gardenPlan.webServer.port');
+var database = config.get('gardenPlan.databaseServer');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');

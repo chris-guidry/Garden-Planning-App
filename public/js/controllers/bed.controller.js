@@ -19,8 +19,8 @@ angular.module('bedController', [])
 		$scope.createBed = function() {
 			// validate the formData to make sure that something is there
 			// if form is empty, nothing will happen
-			if ($scope.formData.text != undefined) {
-				$scope.loading = true;
+			//if ($scope.formData.text != undefined) {
+				$scope.savingBed = true;
 
 				$scope.formData.plants = $scope.selectedPlants;
 				// call the create function from the service (returns a promise object)
@@ -28,13 +28,16 @@ angular.module('bedController', [])
 
 					// if successful creation, call the get function to get all of the new beds
 					.success(function(data) {
-						$scope.loading = false;
+						$scope.savingBed = false;
 						$scope.formData = {};
 						$scope.selectedPlants = [];
 						$('.form-plants').find('input[type=checkbox]:checked').removeAttr('checked');
 						$scope.beds = data; // assign the new list of beds
+					})
+					.error(function(data) {
+						$scope.savingBed = false;
+						//console.log("Beds.create error: " + JSON.stringify(data));
 					});
-			}
 		};
 
 		// DELETE ==================================================================
