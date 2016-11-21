@@ -1,7 +1,11 @@
 {
   "gardenPlan": {
     "databaseServer": {
+      "host": "localhost",
       "database": "garden-plan-test"
+    },
+    "webServer": {
+      "port": "8081"
     }
   }
 }

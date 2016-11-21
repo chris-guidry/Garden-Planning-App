@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 //var validator  = require('express-validator');
 
-mongoose.connect('mongodb://localhost/garden-plan');
+mongoose.connect('mongodb://' + config.get('gardenPlan.databaseServer.host') + '/' + config.get('gardenPlan.databaseServer.database'));
 
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
 app.use(morgan('dev')); // log every request to the console
@@ -32,3 +32,6 @@ require('./app/routes')(app);
 // listen (start app with node server.js) ======================================
 app.listen(port);
 console.log("App listening on port " + port);
+
+//for testing
+module.exports = app;

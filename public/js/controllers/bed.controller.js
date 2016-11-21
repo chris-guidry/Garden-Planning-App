@@ -32,11 +32,12 @@ angular.module('bedController', [])
 						$scope.formData = {};
 						$scope.selectedPlants = [];
 						$('.form-plants').find('input[type=checkbox]:checked').removeAttr('checked');
+						console.log("Beds.create.success: " + JSON.stringify(data));
 						$scope.beds = data; // assign the new list of beds
 					})
 					.error(function(data) {
 						$scope.savingBed = false;
-						//console.log("Beds.create error: " + JSON.stringify(data));
+						//console.log("Beds.create.error: " + JSON.stringify(data));
 					});
 		};
 
@@ -50,6 +51,7 @@ angular.module('bedController', [])
 				.success(function(data) {
 					$scope.loading = false;
 					$scope.beds = data; // assign the new list of beds
+					console.log("Beds.delete.success: " + JSON.stringify(data));
 				});
 		};
 		$scope.setSelectedPlants = function(id) {
